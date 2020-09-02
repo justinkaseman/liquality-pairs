@@ -21,8 +21,8 @@ export default function CryptoIcon({ ticker }: { ticker: any }) {
   }, [ticker]);
 
   return (
-    <div>
-      <img alt={`${ticker} symbol`} src={icon} />
+    <div className="CryptoIcon-container">
+      {icon.length > 0 && <img alt={`${ticker} symbol`} src={icon} />}
     </div>
   );
 }

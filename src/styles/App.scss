@@ -1,4 +1,4 @@
-@import "theme.scss";
+@import "./_theme.scss";
 
 .App {
   text-align: center;
@@ -42,4 +42,8 @@
 
 .Status {
   font-size: calc(3px + 1vmin);
+}
+
+.Background-gradient {
+  background-image: linear-gradient(to right, $purple-color, $cyan-color);
 }

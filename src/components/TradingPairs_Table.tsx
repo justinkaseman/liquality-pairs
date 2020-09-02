@@ -1,5 +1,10 @@
 import React from "react";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import {
+  createStyles,
+  makeStyles,
+  Theme,
+  withStyles,
+} from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -9,6 +14,7 @@ import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import TableSortLabel from "@material-ui/core/TableSortLabel";
 import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 import CryptoIcon from "./CryptoIcon";
 import { format, formatDistanceToNow } from "date-fns";
 import { tokens } from "../shared/constants/tokens";
@@ -99,6 +105,12 @@ const headCells: HeadCell[] = [
   },
 ];
 
+const WhiteTextTypography = withStyles({
+  root: {
+    color: "#FFFFFF",
+  },
+})(Typography);
+
 interface EnhancedTableProps {
   classes: ReturnType<typeof useStyles>;
   onRequestSort: (
@@ -120,7 +132,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 
   return (
     <TableHead>
-      <TableRow>
+      <TableRow className="Background-gradient">
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
@@ -133,7 +145,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
               direction={orderBy === headCell.id ? order : "asc"}
               onClick={createSortHandler(headCell.id)}
             >
-              {headCell.label}
+              <WhiteTextTypography>{headCell.label}</WhiteTextTypography>
               {orderBy === headCell.id ? (
                 <span className={classes.visuallyHidden}>
                   {order === "desc" ? "sorted descending" : "sorted ascending"}
@@ -237,10 +249,10 @@ export default function EnhancedTable({ data }: { data: Data[] }) {
                       </div>
                     </TableCell>
                     <TableCell align="left">
-                      {row.min / tokens[row.from]}
+                      {row.min / tokens[row.from]} {row.to}
                     </TableCell>
                     <TableCell align="left">
-                      {row.max / tokens[row.from]}
+                      {row.max / tokens[row.from]} {row.to}
                     </TableCell>
                     <TableCell align="left">{row.minConf}</TableCell>
                     <TableCell align="left">

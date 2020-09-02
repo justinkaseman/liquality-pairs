@@ -1,5 +1,6 @@
 import React from "react";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import { Header, TradingPairs } from "./components";
 import { useGlobalState } from "./context";
 
@@ -12,10 +13,10 @@ function App() {
   });
   return (
     <ThemeProvider theme={currentTheme}>
-      <div className="App">
+      <CssBaseline>
         <Header />
         <TradingPairs />
-      </div>
+      </CssBaseline>
     </ThemeProvider>
   );
 }

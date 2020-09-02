@@ -2,22 +2,30 @@ import React from "react";
 import Paper from "@material-ui/core/Paper";
 import Menu from "./Menu";
 import ThemeToggle from "./ThemeToggle";
-import logo from "../assets/logo.svg";
+import { useGlobalState } from "../context";
+import logo_black from "../assets/logo_black.svg";
+import logo_white from "../assets/logo_white.svg";
+
 import "../styles/App.scss";
 
 function Header() {
+  const { theme } = useGlobalState();
   return (
-    <Paper style={{ marginBottom: "3px", padding: "16px" }}>
-      <header className="App-header">
+    <Paper className="Header-paper">
+      <header className="Header-container">
         <a
           className="App-link"
           href="https://liquality.io/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={logo} className="App-logo" alt="logo" />
+          <img
+            src={theme === "light" ? logo_black : logo_white}
+            className="App-logo"
+            alt="logo"
+          />
         </a>
-        <div className="Header-buttons-container">
+        <div className="Header-buttons">
           <ThemeToggle />
           <Menu />
         </div>

@@ -20,5 +20,9 @@ export default function CryptoIcon({ ticker }: { ticker: any }) {
     importIcon();
   }, [ticker]);
 
-  return <img alt={`${ticker} symbol`} src={icon} />;
+  return (
+    <div>
+      <img alt={`${ticker} symbol`} src={icon} />
+    </div>
+  );
 }

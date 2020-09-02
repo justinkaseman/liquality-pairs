@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
 import TradingPairsTable from "./TradingPairs_Table";
+import Alert from "./Alert";
 import { useGlobalState } from "../context";
 import { useInterval } from "../shared/hooks";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import Container from "@material-ui/core/Container";
 
 export default function TradingPairs() {
   const { refreshRate } = useGlobalState();
@@ -35,10 +37,17 @@ export default function TradingPairs() {
 
   if (loading)
     return (
-      <div>
-        <CircularProgress color="inherit" />
-      </div>
+      <Container maxWidth={false}>
+        <div className="Container-column" style={{ height: "70vh" }}>
+          <CircularProgress size={50} color="inherit" />
+        </div>
+      </Container>
     );
 
-  return <TradingPairsTable data={data}></TradingPairsTable>;
+  return (
+    <Container maxWidth={false}>
+      <TradingPairsTable data={data}></TradingPairsTable>
+      {error && <Alert open={!!error} />}
+    </Container>
+  );
 }

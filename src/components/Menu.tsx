@@ -45,12 +45,10 @@ export default function SimpleMenu() {
       >
         <MenuItem onClick={handleClose}>
           <FormControl>
-            <InputLabel id="demo-simple-select-placeholder-label-label">
-              Refresh every
-            </InputLabel>
+            <InputLabel id="menu-refresh-label">Refresh every</InputLabel>
             <Select
-              labelId="demo-simple-select-placeholder-label-label"
-              id="demo-simple-select-placeholder-label"
+              labelId="menu-refresh-label"
+              id="menu-refresh-select"
               value={refreshRate}
               onChange={handleChange}
               displayEmpty

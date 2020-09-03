@@ -2,7 +2,7 @@ import React from "react";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Header, TradingPairs } from "./components";
-import { useGlobalState } from "./context";
+import { GlobalProvider, useGlobalState } from "./context";
 
 function App() {
   const { theme } = useGlobalState();
@@ -21,4 +21,12 @@ function App() {
   );
 }
 
-export default App;
+function WrappedApp() {
+  return (
+    <GlobalProvider>
+      <App />
+    </GlobalProvider>
+  );
+}
+
+export default WrappedApp;

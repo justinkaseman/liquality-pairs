@@ -37,7 +37,7 @@ export default function TradingPairs() {
 
   if (loading)
     return (
-      <Container maxWidth={false}>
+      <Container maxWidth={false} data-testid="tradingPairs:loading">
         <div className="Container-column" style={{ height: "70vh" }}>
           <CircularProgress size={50} color="inherit" />
         </div>
@@ -45,7 +45,7 @@ export default function TradingPairs() {
     );
 
   return (
-    <Container maxWidth={false}>
+    <Container maxWidth={false} data-testid="tradingPairs:table">
       <TradingPairsTable data={data}></TradingPairsTable>
       {error && <Alert open={!!error} />}
     </Container>

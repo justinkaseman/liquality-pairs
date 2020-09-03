@@ -12,7 +12,7 @@ function Header() {
   const { theme } = useGlobalState();
   return (
     <Paper className="Header-paper">
-      <header className="Header-container">
+      <header className="Header-container" data-testid="header">
         <a
           className="App-link"
           href="https://liquality.io/"
